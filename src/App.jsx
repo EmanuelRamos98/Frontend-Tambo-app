@@ -24,7 +24,7 @@ export const App = () => {
                     {/* Vacas */}
                     <Route path='vacas/' element={<ListadoVacas />} />
                     <Route path='vacas/:rodeoId' element={<VacasPorRodeo />} />
-                    <Route path='vacas/nuevas' element={<FormularioVaca />} />
+                    <Route path='vacas/nuevas/:rodeoId' element={<FormularioVaca />} />
                     <Route path='vacas/:id' element={<DetalleVaca />} />
 
                     {/* Insumos */}
