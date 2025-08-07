@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetRodeo } from '../../Hooks/api'
+import { useGetRodeo, useGetConsumos } from '../../Hooks/api'
 import { useNavigate, useParams } from 'react-router-dom'
 
 export const ListadoRodeos = () => {
@@ -19,6 +19,7 @@ export const ListadoRodeos = () => {
                                 <p>{rodeo.tipo}</p>
                                 <p>{rodeo.fechaCreacion}</p>
                                 <button onClick={() => nav(`/home/vacas/${rodeo._id}`)}>Entrar</button>
+                                <button onClick={() => nav(`/home/rodeos/${rodeo._id}`)}>Detalle</button>
                             </div>
                         )
                     }))

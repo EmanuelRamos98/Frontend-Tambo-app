@@ -1,6 +1,7 @@
 import React from 'react'
-import { useGetVacasPorRodeo } from '../../Hooks/api'
+import { useGetConsumos, useGetVacasPorRodeo } from '../../Hooks/api'
 import { useNavigate, useParams } from 'react-router-dom'
+import { ListadoConsumos } from '../Consumos'
 
 export const VacasPorRodeo = () => {
     const { rodeoId } = useParams()
@@ -12,6 +13,7 @@ export const VacasPorRodeo = () => {
             <h2>Vacas de este rodeo</h2>
             <p>Agregar vacas?</p>
             <button onClick={() => nav(`/home/vacas/nuevas/${rodeoId}`)}>Crear</button>
+            <button onClick={() => nav(`/home/rodeos/consumos/${rodeoId}`)}>DetalleRodeo</button>
             {loading ? <p>Cargando vacas...</p>
                 : error ? <p>Error: {error}</p>
                     : (vacas.map((vaca) => {

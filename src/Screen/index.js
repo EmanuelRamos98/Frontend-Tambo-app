@@ -4,3 +4,4 @@ export * from "./Rodeos";
 export * from "./Consumos";
 export * from "./Insumos";
 export * from "./Auth";
+export * from "./Dashboard";

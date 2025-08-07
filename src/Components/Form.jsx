@@ -20,7 +20,7 @@ export const Form = ({ fields = [], onSubmit, defaultValues = {}, submitText, ru
                     <label htmlFor={name}>{label}</label>
 
                     {type === 'select' ? (
-                        <select name={name} value={valor[name] || ''}>
+                        <select name={name} value={valor[name] || ''} onChange={handleChange}>
                             <option value=''>Seleccionar</option>
                             {options.map((opt) => (
                                 <option key={opt.value} value={opt.value}>{opt.label}</option>

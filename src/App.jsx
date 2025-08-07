@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { MinLayouts } from './Layouts'
-import { DetalleRodeo, DetalleVaca, FormularioInsumo, FormularioVaca, ListadoConsumos, ListadoInsumos, ListadoRodeos, ListadoTambos, ListadoVacas, Login, NotFound, RegisterConsumo, VacasPorRodeo } from './Screen'
+import { DetalleRodeo, DetalleVaca, FormularioInsumo, FormularioVaca, ListadoConsumos, ListadoInsumos, ListadoRodeos, ListadoTambos, ListadoVacas, Login, NotFound, RegisterConsumo, VacasPorRodeo, Dashboard } from './Screen'
 import { ProtectedRoute } from './Components'
 
 export const App = () => {
@@ -17,9 +17,10 @@ export const App = () => {
 
                 <Route path='/home' element={<MinLayouts />} >
 
+                    <Route path='dashboard/:tamboId' element={<Dashboard />} />
                     {/* Rodeos */}
                     <Route path='rodeos/:tamboId' element={<ListadoRodeos />} />
-                    <Route path='rodeos/:id' element={<DetalleRodeo />} />
+                    <Route path='rodeos/consumos/:rodeoId' element={<DetalleRodeo />} />
 
                     {/* Vacas */}
                     <Route path='vacas/' element={<ListadoVacas />} />
@@ -33,7 +34,7 @@ export const App = () => {
 
                     {/* Consumos */}
                     <Route path='consumos/registrar' element={<RegisterConsumo />} />
-                    <Route path='insumos/nuevo' element={<ListadoConsumos />} />
+                    <Route path='consumos' element={<ListadoConsumos />} />
 
                 </Route>
 

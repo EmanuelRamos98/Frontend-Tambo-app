@@ -5,8 +5,15 @@ export const useForms = (valorInicial = {}) => {
     const [error, setError] = useState({})
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setValor((prev) => ({ ...prev, [name]: value }))
+        const { name, value, type } = e.target
+        let parsedValue
+
+        if (type === 'number') {
+            parsedValue = Number(value)
+        } else {
+            parsedValue = value
+        }
+        setValor((prev) => ({ ...prev, [name]: parsedValue }))
     }
 
     const reset = () => {

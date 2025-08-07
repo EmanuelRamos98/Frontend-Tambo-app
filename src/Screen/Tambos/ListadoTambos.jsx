@@ -1,10 +1,18 @@
 import React from 'react'
 import { useGetTambo } from '../../Hooks/api'
 import { useNavigate } from 'react-router-dom'
+import { useTambo } from '../../Context/TamboContext'
 
 export const ListadoTambos = () => {
     const { tambos, error, loading } = useGetTambo()
+    const { setTamboSeleccionado } = useTambo()
     const nav = useNavigate()
+
+    const handleSeleccionar = (tambo) => {
+        setTamboSeleccionado(tambo)
+        nav(`/home/dashboard/${tambo._id}`)
+    }
+
     return (
         <div>
             <h1>Listado de Tambos</h1>
@@ -20,7 +28,7 @@ export const ListadoTambos = () => {
                                             <p>{tambo.descripcion}</p>
                                             <p>{tambo.ubicacion}</p>
                                             <p>{tambo.fechaCreacion}</p>
-                                            <button onClick={() => nav(`/home/rodeos/${tambo._id}`)}>Entrar</button>
+                                            <button onClick={() => handleSeleccionar(tambo)}>Entrar</button>
                                         </div>
                                     )
                                 })}
